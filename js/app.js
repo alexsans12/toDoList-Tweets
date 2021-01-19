@@ -95,11 +95,10 @@ function crearHTML() {
             fragment.appendChild(li);
 
             // Asignar el boton
-            fragment.insertBefore(btnEliminar, li);
+            fragment.lastChild.appendChild(btnEliminar);
 
         });
         listaTweets.appendChild(fragment);
-        document.querySelector("#tweet").textContent = "";
     }
 
     sincronizarStorage();
@@ -118,7 +117,5 @@ function borrarTweet(id) {
 }
 
 function limpiarHTML() {
-    while( listaTweets.firstChild ) {
-        listaTweets.removeChild(listaTweets.firstChild);
-    }
+    listaTweets.textContent = '';
 }
